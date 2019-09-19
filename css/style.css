@@ -1,0 +1,32 @@
+.centralize {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0px;
+}
+
+.interna {
+    width: 200px; /* Valor da Largura do elemento */
+}
+
+i {
+    font-family: fontawesome !important;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+/* visited link */
+a:visited {
+    color: gray;
+}
+
+a:link {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: black;
+} 
