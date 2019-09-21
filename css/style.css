@@ -6,14 +6,19 @@
     padding: 0em;
 }
 
-h1 {
-    font-size: 40px;
-    font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+.icons {
+    margin: 15px;
+}
 
+h1 {
+    font-size: 60px;
+    font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+    margin-top: 60px !important;
+    margin: 0px;
 }
 
 p {
-    font-size: 12px;
+    font-size: 22px;
     font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
 }
 
@@ -23,6 +28,8 @@ p {
 
 i {
     font-family: fontawesome !important;
+    font-style: normal;
+    font-size: 40px;
 }
 
 body {
