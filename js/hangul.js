@@ -31,6 +31,18 @@ function mixCharacters(simple, compound) {
     }
 }
 
+function listsEvent(e) {
+    console.log("event for mix")
+    var simp = document.getElementById("l-simple").checked;
+    var comp = document.getElementById("l-compound").checked;
+
+    if(simp == false && comp == false) {
+        simp = true
+    }
+
+    mixCharacters(simp, comp);
+}
+
 function challange() {
     secretIndex = Math.floor(Math.random() * mixedCharactersHangul.length);
     hangul = mixedCharactersHangul[secretIndex];
@@ -63,7 +75,7 @@ function test(romanicChoose) {
 }
 
 function start() {
-    mixCharacters(true, false);
+    listsEvent();
     document.getElementById('romanic').addEventListener("keydown", function(e) {
         if(e.keyCode === 13) {
             console.log("valor digitado", e.target.value);
