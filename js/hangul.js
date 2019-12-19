@@ -3,10 +3,19 @@ var simple_vowel_romanic = ['a', 'ya', 'eo', 'yeo', 'o', 'yo', 'u', 'yu', 'eu', 
 
 var compound_vowel_hangul = ['ㅐ', 'ㅒ', 'ㅔ', 'ㅖ', 'ㅢ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅝ', 'ㅞ', 'ㅟ'];
 var compound_vowel_romanic = ['ae', 'yae', 'e', 'ye', 'ui', 'wa', 'wae', 'oe', 'wo', 'we', 'wi'];
- 
+
+var simple_consoant_hangul = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+var simple_consoant_romanic = ['g', 'n', 'd', 'l r', 'm', 'b', 's', 'ng', 'j', 'ch', 'k', 't', 'p', 'h'];
+
+var double_consoant_hangul = ['ㄲ', 'ㄸ', 'ㅃ', 'ㅆ', 'ㅉ'];
+var double_consoant_romanic = ['kk', 'tt', 'pp', 'ss', 'jj'];
+
+var compound_consoant_hangul = ['ㄳ', 'ㄵ', 'ㄶ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅄ'];
+var compound_consoant_romanic = ['gs', 'nj', 'nh', 'lg', 'lm', 'lb', 'ls', 'lt', 'lp', 'lh', 'bs'];
 
 var mixedCharactersHangul = [];
 var mixedCharactersRomanic = [];
+
 var secretIndex = 0;
 
 var info = "Correct percentage: ";
@@ -14,7 +23,7 @@ var queue = [];
 var correct = 0;
 var incorrect = 0;
 
-function mixCharacters(simple, compound) {
+function mixCharacters(simple, compound, simplec, double, compoundc) {
     mixedCharactersHangul = [];
     mixedCharactersRomanic = [];
 
@@ -29,18 +38,43 @@ function mixCharacters(simple, compound) {
         mixedCharactersHangul = mixedCharactersHangul.concat(compound_vowel_hangul);
         mixedCharactersRomanic = mixedCharactersRomanic.concat(compound_vowel_romanic);
     }
+
+    if(simplec) {
+        console.log("Simple c characters is selected")
+        mixedCharactersHangul = mixedCharactersHangul.concat(simple_consoant_hangul);
+        mixedCharactersRomanic = mixedCharactersRomanic.concat(simple_consoant_romanic);
+    }
+
+    if(double) {
+        console.log("Double c characters is selected")
+        mixedCharactersHangul = mixedCharactersHangul.concat(double_consoant_hangul);
+        mixedCharactersRomanic = mixedCharactersRomanic.concat(double_consoant_romanic);
+    }
+
+    if(compoundc) {
+        console.log("Compound c characters is selected")
+        mixedCharactersHangul = mixedCharactersHangul.concat(compound_consoant_hangul);
+        mixedCharactersRomanic = mixedCharactersRomanic.concat(compound_consoant_romanic);
+    }
 }
 
 function listsEvent(e) {
     console.log("event for mix")
     var simp = document.getElementById("l-simple").checked;
     var comp = document.getElementById("l-compound").checked;
+    var simpc = document.getElementById("l-simplec").checked;
+    var doubl = document.getElementById("l-doublec").checked;
+    var compc = document.getElementById("l-compoundc").checked;
 
-    if(simp == false && comp == false) {
+    if(simp == false && 
+        comp == false &&
+        simpc == false &&
+        doubl == false &&
+        compc == false) {
         simp = true
     }
 
-    mixCharacters(simp, comp);
+    mixCharacters(simp, comp, simpc, doubl, compc);
 }
 
 function challange() {
